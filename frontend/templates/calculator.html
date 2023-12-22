@@ -3,21 +3,40 @@
 <head>
     <title>Calculator</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .button-style {
+            width: 25px;
+            height: 25px;
+        }
+    </style>
 </head>
 <body>
     <h1>Web Calculator</h1>
     <input type="text" id="operation" placeholder="Operation" readonly>
     <input type="text" id="result" placeholder="Result" readonly>
-    <div>
+    <div class="button-container">
         <!-- Numeric Keypad -->
-        <button onclick="appendNumber('1')">1</button>
-        <button onclick="appendNumber('2')">2</button>
+        <button class="button-style" onclick="appendNumber('0')">0</button>
+        <button class="button-style" onclick="appendNumber('1')">1</button>
+        <button class="button-style" onclick="appendNumber('2')">2</button>
+        <button class="button-style" onclick="appendNumber('3')">3</button>
+        <button class="button-style" onclick="appendNumber('4')">4</button>
+        <button class="button-style" onclick="appendNumber('5')">5</button>
+        <button class="button-style" onclick="appendNumber('6')">6</button>
+        <button class="button-style" onclick="appendNumber('7')">7</button>
+        <button class="button-style" onclick="appendNumber('8')">8</button>
+        <button class="button-style" onclick="appendNumber('9')">9</button>
         <!-- Add more buttons for numbers -->
     </div>
-    <div>
+    <div class="button-container">
         <!-- Operation Buttons -->
-        <button onclick="appendOperation('+')">+</button>
-        <button onclick="appendOperation('-')">-</button>
+        <button class="button-style" onclick="appendOperation('+')">+</button>
+        <button class="button-style" onclick="appendOperation('-')">-</button>
         <!-- Add more buttons for operations -->
     </div>
     <button onclick="calculate()">Calculate</button>
