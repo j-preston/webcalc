@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Web Calculator</h1>
+    <input type="text" id="operation" placeholder="Operation" readonly>
+    <input type="text" id="result" placeholder="Result" readonly>
+    <div>
+        <!-- Numeric Keypad -->
+        <button onclick="appendNumber('1')">1</button>
+        <button onclick="appendNumber('2')">2</button>
+        <!-- Add more buttons for numbers -->
+    </div>
+    <div>
+        <!-- Operation Buttons -->
+        <button onclick="appendOperation('+')">+</button>
+        <button onclick="appendOperation('-')">-</button>
+        <!-- Add more buttons for operations -->
+    </div>
+    <button onclick="calculate()">Calculate</button>
+
+    <script>
+        function appendNumber(number) {
+            document.getElementById('operation').value += number;
+        }
+
+        function appendOperation(operator) {
+            document.getElementById('operation').value += ' ' + operator + ' ';
+        }
+
+        function calculate() {
+            var operation = document.getElementById('operation').value;
+            $.ajax({
+                url: '/calculate',  // Backend URL
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({operation: operation}),
+                success: function(response) {
+                    document.getElementById('result').value = response.result;
+                }
+            });
+        }
+    </script>
+</body>
+</html>
