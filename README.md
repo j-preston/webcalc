@@ -40,3 +40,5 @@ Show how changes in the frontend or backend trigger the CI pipeline.
 Demonstrate handling merge conflicts and feature branch strategies.
 Showcase how CI/CD can catch bugs early through automated testing.
 Explain the importance of different environments (development, staging, production) in the deployment process.
+
+Making a change to the readme
